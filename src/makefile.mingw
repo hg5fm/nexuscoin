@@ -17,17 +17,17 @@
 
 CXX ?= g++
 
-USE_UPNP:=-
+USE_UPNP?=-
 USE_IPV6:=1
 
 DEPSDIR?=/usr/local
 BOOST_SUFFIX?=-mgw46-mt-sd-1_52
 
-INCLUDEPATHS= \
+INCLUDEPATHS?= \
  -I"$(CURDIR)" \
  -I"$(DEPSDIR)/include"
 
-LIBPATHS= \
+LIBPATHS?= \
  -L"$(CURDIR)/leveldb" \
  -L"$(DEPSDIR)/lib"
 
@@ -43,9 +43,9 @@ LIBS= \
  -l ssl \
  -l crypto
 
-DEFS=-D_MT -DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE
+DEFS=-D_MT -DWIN32 -DWIN32_LEAN_AND_MEAN -D_WINDOWS -DBOOST_THREAD_USE_LIB -DBOOST_SPIRIT_THREADSAFE
 DEBUGFLAGS=-g
-CFLAGS=-mthreads -O2 -w -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
+CFLAGS=${ADDITIONALCCFLAGS} -mthreads -O2 -w -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
 # enable: ASLR, DEP and large address aware
 LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware
 

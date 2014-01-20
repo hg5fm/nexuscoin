@@ -7,7 +7,7 @@ SetCompressor /SOLID lzma
 !define REGKEY "SOFTWARE\$(^Name)"
 !define VERSION 0.8.6
 !define COMPANY "Nexuscoin project"
-!define URL http://www.coingen.io/
+!define URL http://www.nexuscoin.org/
 
 # MUI Symbol Definitions
 !define MUI_ICON "../share/pixmaps/nexuscoin.ico"

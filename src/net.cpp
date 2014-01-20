@@ -15,10 +15,10 @@
 #endif
 
 #ifdef USE_UPNP
-#include <miniupnpc/miniwget.h>
-#include <miniupnpc/miniupnpc.h>
-#include <miniupnpc/upnpcommands.h>
-#include <miniupnpc/upnperrors.h>
+#include <miniwget.h>
+#include <miniupnpc.h>
+#include <upnpcommands.h>
+#include <upnperrors.h>
 #endif
 
 // Dump addresses to peers.dat every 15 minutes (900s)
@@ -1191,9 +1191,11 @@ void MapPort(bool)
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strMainNetDNSSeed[][2] = {
-    {"nexuscoin.org", "node.nexuscoin.org",},
-    {"nexuscoin.org", "node0.nexuscoin.org",},
-    {NULL, NULL};
+    {"node.nexuscoin.org", "node.nexuscoin.org"},
+    {"node0.nexuscoin.org", "node0.nexuscoin.org"},
+    {"54.201.116.160", "54.201.116.160"},
+    {NULL, NULL}
+};
 
 static const char *strTestNetDNSSeed[][2] = {
     {"bitcoin.petertodd.org", "testnet-seed.nexuscoin.petertodd.org"},
